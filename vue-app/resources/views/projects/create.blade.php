@@ -16,26 +16,24 @@
       
     <form method="POST" action="/projects" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
     
-    <div class="field">
+    <div class="control">
   <label class="label"> Project Name </label>
-  <div class="control">
     <input class="input" name="name" type="text" placeholder="e.g  My project.." id="name" v-model="form.name">
-    <span class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
+    <p class="help is-danger" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></p>
 
   </div>
-</div>
 
 <div class="field">
-  <label class="label"> Project Description: </label>
+  <label for="description" class="label"> Project Description: </label>
   <div class="control">
     <input class="input" id="description" name="description"type="text" placeholder="e.g. database.." v-model="form.description">
-    <span class="help is-danger" v-if="form.errors.has('description')" v-text="form.errors.get('.escription')"></span>
+    <p class="help is-danger" v-if="form.errors.has('description')" v-text="form.errors.get('description')"></p>
 
   </div>
 
 
   <div class="control">
-<button class="button-is-primary" :disabled="errors.any()"> Create </button>
+<button class="button-is-primary" :disabled="form.errors.any()"> Create </button>
   
   </div>
 </div>
